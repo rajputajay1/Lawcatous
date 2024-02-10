@@ -121,7 +121,7 @@ const Appbar = ({ check, change }) => {
                 <Typography sx={{
                     fontSize: 25,
                     color: "white"
-                }}>Lawctopus</Typography>
+                }}>Lawctopus Ajay</Typography>
                 <IconButton
                     onClick={handleSidebar}
                     sx={{
