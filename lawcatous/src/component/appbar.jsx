@@ -19,6 +19,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
+
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -73,12 +75,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Appbar = ({ check, change }) => {
-    // console.log(check);
+
+
     const [sidebar, setsidebar] = useState(false)
     const [dropdown1, setDropdown1] = useState(false);
     const [dropdown2, setDropdown2] = useState(false);
     const [dropdown3, setDropdown3] = useState(false);
     const [dropdown4, setDropdown4] = useState(false);
+    const [value, setValue] = React.useState(0);
 
 
     const handleDropdown1 = () => {
@@ -372,147 +376,151 @@ const Appbar = ({ check, change }) => {
         </Box>
     )
     return (
-        <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static"
-                sx={{
-                    backgroundColor: "transparent",
-                    // height: 190
-                }}
-            >
-                <Toolbar
-                    sx={{ mt: 1 }}
-                >
-
-                    <IconButton
-
-                        size="large"
-                        edge="start"
-                        // color="inherit"
-                        aria-label="open drawer"
-                        onClick={handleSidebar}
-                        sx={{
-                            color: check ? "white" : "black",
-                            mr: 2,
-                            '@media (min-width: 1200px)': {
-                                display: "none"
-                            },
-                        }}  >
-                        <MenuIcon />
-                    </IconButton>
-
-                    <Typography variant='h5' sx={{
-                        // ml: 1,
-                        mr: 8,
-                        color: check ? "white" : "black",
-                    }}>
-                        Lawctoppus
-                    </Typography>
-                    <Search sx={
-                        {
-                            backgroundColor: check ? "#383838" : "#f4f4f4",
-                            borderRadius: 2,
-                            height: 40,
-                            ml: 6,
-                            '@media (max-width: 1200px)': {
-                                display: "none"
-                            },
-
-                        }
-                    }>
-                        <SearchIconWrapper>
-                            <SearchIcon sx={{
-                                color: check ? "white" : "grey"
-                            }} />
-                        </SearchIconWrapper>
-                        <StyledInputBase
-                            // color:check?"#9b9b9b"
-                            placeholder="Search On Lawctopus..."
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                    </Search>
-                    <CallIcon
-                        sx={{
-                            color: "#f6a62c",
-                            ml: 3,
-                            '@media (max-width: 1200px)': {
-                                display: "none"
-                            },
-
-                        }}
-                    ></CallIcon>
-                    <Button
-                        sx={{
-                            color: "#f6a62c",
-                            mr: 3,
-                            '@media (max-width: 1200px)': {
-                                display: "none"
-                            },
-
-                        }}
-                    >CONTECT</Button>
-                    <Button
-                        sx={{
-                            backgroundColor: "#f6a62c",
-                            color: "black",
-                            borderRadius: 2,
-                            mr: 3,
-                            '@media (max-width: 1200px)': {
-                                display: "none"
-                            },
-
-                        }}
-                    >SUBMIT POSTS</Button>
-                    <Button
-                        sx={{
-                            backgroundColor: "white",
-                            color: "black",
-                            border: "1px solid black",
-                            borderRadius: 2,
-                            '@media (max-width: 1200px)': {
-                                display: "none"
-                            },
-
-
-                        }}
-                    >LLS COURSES</Button>
-
-                    <Box sx={{ flexGrow: 2 }} />
-                    <Box >
-                        <IconButton onClick={change}
-                            sx={{
-                                // color: "red",
-                                color: check ? "white" : "black",
-                            }}
-                        >
-                            {/* <LightModeIcon ></LightModeIcon> */}
-                            {check ? < LightModeIcon /> : < DarkModeIcon />}
-                        </IconButton>
-
-                    </Box>
-
-                </Toolbar>
-                <Divider
+        <>
+            <Box sx={{ flexGrow: 1 }}>
+                <AppBar position="static"
                     sx={{
-                        mt: 2,
-                        backgroundColor: "rgb(197, 194, 194)",
-
+                        backgroundColor: "transparent",
+                        // height: 190
                     }}
                 >
-                </Divider>
-                {/* <Typography>Ajay</Typography> */}
-                <PositionedTooltips
-                
-                ></PositionedTooltips>
-            </AppBar>
-            <Box>
-                <Drawer variant='temporary' open={sidebar}
-                // onclose={handleSidebar}
-                >
-                    {drawer}
-                </Drawer>
+                    <Toolbar
+                        sx={{ mt: 1 }}
+                    >
+
+                        <IconButton
+
+                            size="large"
+                            edge="start"
+                            // color="inherit"
+                            aria-label="open drawer"
+                            onClick={handleSidebar}
+                            sx={{
+                                color: check ? "white" : "black",
+                                mr: 2,
+                                '@media (min-width: 1200px)': {
+                                    display: "none"
+                                },
+                            }}  >
+                            <MenuIcon />
+                        </IconButton>
+
+                        <Typography variant='h5' sx={{
+                            // ml: 1,
+                            mr: 8,
+                            color: check ? "white" : "black",
+                        }}>
+                            Lawctoppus
+                        </Typography>
+                        <Search sx={
+                            {
+                                backgroundColor: check ? "#383838" : "#f4f4f4",
+                                borderRadius: 2,
+                                height: 40,
+                                ml: 6,
+                                '@media (max-width: 1200px)': {
+                                    display: "none"
+                                },
+
+                            }
+                        }>
+                            <SearchIconWrapper>
+                                <SearchIcon sx={{
+                                    color: check ? "white" : "grey"
+                                }} />
+                            </SearchIconWrapper>
+                            <StyledInputBase
+                                // color:check?"#9b9b9b"
+                                placeholder="Search On Lawctopus..."
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                        </Search>
+                        <CallIcon
+                            sx={{
+                                color: "#f6a62c",
+                                ml: 3,
+                                '@media (max-width: 1200px)': {
+                                    display: "none"
+                                },
+
+                            }}
+                        ></CallIcon>
+                        <Button
+                            sx={{
+                                color: "#f6a62c",
+                                mr: 3,
+                                '@media (max-width: 1200px)': {
+                                    display: "none"
+                                },
+
+                            }}
+                        >CONTECT</Button>
+                        <Button
+                            sx={{
+                                backgroundColor: "#f6a62c",
+                                color: "black",
+                                borderRadius: 2,
+                                mr: 3,
+                                '@media (max-width: 1200px)': {
+                                    display: "none"
+                                },
+
+                            }}
+                        >SUBMIT POSTS</Button>
+                        <Button
+                            sx={{
+                                backgroundColor: "white",
+                                color: "black",
+                                border: "1px solid black",
+                                borderRadius: 2,
+                                '@media (max-width: 1200px)': {
+                                    display: "none"
+                                },
+
+
+                            }}
+                        >LLS COURSES</Button>
+
+                        <Box sx={{ flexGrow: 2 }} />
+                        <Box >
+                            <IconButton onClick={change}
+                                sx={{
+                                    // color: "red",
+                                    color: check ? "white" : "black",
+                                }}
+                            >
+                                {/* <LightModeIcon ></LightModeIcon> */}
+                                {check ? < LightModeIcon /> : < DarkModeIcon />}
+                            </IconButton>
+
+                        </Box>
+
+                    </Toolbar>
+                    <Divider
+                        sx={{
+                            mt: 2,
+                            backgroundColor: "rgb(197, 194, 194)",
+
+                        }}
+                    >
+                    </Divider>
+                    {/* <Typography>Ajay</Typography> */}
+                    <PositionedTooltips
+
+                    ></PositionedTooltips>
+                </AppBar>
+                <Box>
+                    <Drawer variant='temporary' open={sidebar}
+                    // onclose={handleSidebar}
+                    >
+                        {drawer}
+                    </Drawer>
+                </Box>
+
             </Box>
 
-        </Box>
+        </>
+
     );
 }
 export default Appbar;
